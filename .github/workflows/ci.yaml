@@ -39,10 +39,11 @@ jobs:
         run: pyinstaller --clean mbus_cli.spec
       - name: Normalize artifact name
         shell: bash
+        working-directory: src/dist
         run: |
-          cd src/dist
-          if [ -f mbus_cli.exe ]; then mv mbus_cli.exe "${{ matrix.artifact }}"; fi
-          if [ -f mbus_cli ] && [ "${{ matrix.artifact }}" != "mbus_cli" ]; then mv mbus_cli "${{ matrix.artifact }}"; fi
+          target="${{ matrix.artifact }}"
+          built=$(ls | head -1)
+          if [ "$built" != "$target" ]; then mv "$built" "$target"; fi
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
