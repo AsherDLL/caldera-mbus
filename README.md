@@ -57,3 +57,8 @@ PYTHONPATH=src python -m pytest tests -q
 ## License
 
 Apache-2.0. See [`LICENSE`](LICENSE) and [`NOTICE.md`](NOTICE.md).
+
+## Authors
+
+- Asher Davila ([AsherDLL](https://github.com/AsherDLL))
+- Malav Vyas ([MalavVyas](https://github.com/MalavVyas))
